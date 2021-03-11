@@ -25,8 +25,8 @@
           <%# // ログインしているときは上記を表示するようにしましょう %>
           <%# ログインしていないときは以下を表示するようにしましょう %>
             <div class="nav__right">
-              <%= link_to "ログイン", root_path, class: :nav__btn %>
-              <%= link_to "新規登録", root_path, class: :nav__btn %>
+              <a class="nav__btn" href="/users/sign_in">ログイン</a>
+              <a class="nav__btn" href="/users/sign_up">新規登録</a>
             </div>
           <%# // ログインしていないときは上記を表示するようにしましょう %>
         </div>
@@ -38,3 +38,4 @@
     </footer>
   </body>
 </html>
+
