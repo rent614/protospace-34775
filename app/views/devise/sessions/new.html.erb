@@ -4,7 +4,7 @@
       <h2 class="page-heading">ユーザーログイン</h2>
         <%# 「モデル名」にはUserモデルであれば@userを渡しましょう。%>
         <%# 「ログイン機能へのパス」は、devise導入後にrails routesを実行してdevise/sessions#createへのパスを確認し、記載してください。 %>
-        <%= form_with model: モデル名, url: ログイン機能へのパス, local: true do |f| %>
+        <%= form_with model: @user, url: "/users/sign_in", local: true do |f| %>
 
         <div class="field">
           <%= f.label :hoge, "メールアドレス" %><br />
