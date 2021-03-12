@@ -18,16 +18,19 @@
             <%= link_to image_tag("logo.png", class: :logo), root_path %>
           </div>
           <%# ログインしているときは以下を表示するようにしましょう %>
-            <%# <div class="nav__right"> %>
-              <%# <%= link_to "ログアウト", root_path, class: :nav__logout %>
-              <%# <%= link_to "New Proto", root_path, class: :nav__btn %>
-            <%# </div> %>
+          <% if user_signed_in? %>
+             <div class="nav__right"> 
+              <a class="nav__logout" rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a>
+              <a class="nav__btn" href="/prototypes/new">New Proto</a>
+             </div> 
           <%# // ログインしているときは上記を表示するようにしましょう %>
           <%# ログインしていないときは以下を表示するようにしましょう %>
+          <% else %>
             <div class="nav__right">
               <a class="nav__btn" href="/users/sign_in">ログイン</a>
               <a class="nav__btn" href="/users/sign_up">新規登録</a>
             </div>
+          <% end %>
           <%# // ログインしていないときは上記を表示するようにしましょう %>
         </div>
       </div>

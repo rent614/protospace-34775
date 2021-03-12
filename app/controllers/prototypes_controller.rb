@@ -1,5 +1,6 @@
 class PrototypesController < ApplicationController
   def index
+    
   end
 
   def new
@@ -7,5 +8,7 @@ class PrototypesController < ApplicationController
 
   def create
   end
-  
+
+  def destroy
+  end
 end

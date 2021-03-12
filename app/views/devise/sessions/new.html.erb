@@ -7,13 +7,13 @@
         <%= form_with model: @user, url: "/users/sign_in", local: true do |f| %>
 
         <div class="field">
-          <%= f.label :hoge, "メールアドレス" %><br />
-          <%= f.email_field :hoge, id:"user_email", autofocus: true, autocomplete: "email" %>
+          <%= f.label :mail, "メールアドレス" %><br />
+          <%= f.email_field :mail, id:"user_email", autofocus: true, autocomplete: "email" %>
         </div>
 
         <div class="field">
-          <%= f.label :hoge, "パスワード（6文字以上）" %><br />
-          <%= f.password_field :hoge, id:"user_password", autocomplete: "current-password" %>
+          <%= f.label :password, "パスワード（6文字以上）" %><br />
+          <%= f.password_field :password, id:"user_password", autocomplete: "current-password" %>
         </div>
 
         <div class="actions">
