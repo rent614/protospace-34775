@@ -1,4 +1,4 @@
-<%= form_with model: モデル名, local: true do |f|%>
+<%= form_with model: @prototypes, local: true do |f|%>
   <div class="field">
     <%= f.label :title, "プロトタイプの名称" %><br />
     <%= f.text_field :hoge, id:"prototype_title" %>
