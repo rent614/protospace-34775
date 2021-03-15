@@ -1,9 +1,8 @@
 class PrototypesController < ApplicationController
-  def index
-    
-  end
+  
 
   def new
+    @prototypes = Prototypes.new
   end
 
   def create
