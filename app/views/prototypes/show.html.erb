@@ -13,7 +13,7 @@
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
       <% if current_user.id == @prototype.user.id%>
         <div class="prototype__manage">
-          <%= link_to "編集する", root_path, class: :prototype__btn %>
+          <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %>
           <%= link_to "削除する", root_path, method: :delete, class: :prototype__btn %>
         </div>
       <% end %>

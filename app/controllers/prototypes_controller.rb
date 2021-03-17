@@ -25,6 +25,11 @@ class PrototypesController < ApplicationController
   def move_to_index
   end
 
+  def edit
+  end
+
+  def update
+  end
   
 
   private
