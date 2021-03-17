@@ -2,49 +2,64 @@
   <div class="inner">
     <div class="prototype__wrapper">
       <p class="prototype__hedding">
-        <%= "#{prototype.title}"%>
+        <%= @prototype.title%>
       </p>
-      <%= link_to "#{prototype.name}", root_path, class: :prototype__user %>
+
+            <%# <%= @comment.text %> 
+      <%= link_to @prototype.user.name ,root_path, class: :prototype__user %>
+      <%#= link_to "by #{@prototype.user.name}さん" , "/users/#{@comment.user_id}" , class: :prototype__user %> 
+      <%# <%= link_to "by #{@prototype.user.name}さん" ,  user_path(current_user), class: :prototype__user %> 
+      <%# 上の記述で＠prototypeにuserモデルからnameカラムを持ってくるコードができた %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <% if current_user == @prototype.user%>
         <div class="prototype__manage">
-          <%= link_to "編集する", root_path, class: :prototype__btn %>
-          <%= link_to "削除する", root_path, class: :prototype__btn %>
+          <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %>
+          <%= link_to "削除する", prototype_path(@prototype), method: :delete, class: :prototype__btn %>
         </div>
+      <% end %>
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
       <div class="prototype__image">
-         <%= image_tag prorotype.image, class: 'protptype-image' %>
+        <%= image_tag @prototype.image %>
       </div>
       <div class="prototype__body">
         <div class="prototype__detail">
           <p class="detail__title">キャッチコピー</p>
           <p class="detail__message">
-            <%= "#{prototype.catch_copy}" %>
+            <%= @prototype.catch_copy%>
           </p>
         </div>
         <div class="prototype__detail">
           <p class="detail__title">コンセプト</p>
           <p class="detail__message">
-            <%= "#{prototype.concept}" %>
+            <%= @prototype.concept%>
           </p>
         </div>
       </div>
       <div class="prototype__comments">
         <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
-          <%# <%= form_with model: モデル名,local: true do |f|%>
+          <% if current_user %>
+            <%= form_with model: @prototype, local: true do |f|%> 
+            <%# (model: [@prototype, @comment], local: true)にするといいかも %>
             <div class="field">
-              <%# <%= f.label :hoge, "コメント" %><br />
-              <%# <%= f.text_field :hoge, id:"comment_text" %>
+              <%=  f.label :text, "コメント" %><br />
+              <%=  f.text_field :text %>
             </div>
             <div class="actions">
-              <%# <%= f.submit "送信する", class: :form__btn  %>
+              <%= f.submit "送信する", class: :form__btn  %>
             </div>
-          <%# <% end %> 
+            <% end %> 
+           <% end %> 
         <%# // ログインしているユーザーには上記を表示する %>
         <ul class="comments_lists">
           <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+            <% if @comments %>
+              <% @comments.each do |comment| %>
             <li class="comments_list">
-              <%# <%= " コメントのテキスト "%>
-              <%# <%= link_to "（ ユーザー名 ）", root_path, class: :comment_user %>
+              <%#= link_to comment.user.name, user_path(current_user), class: :comment_user %>
+              <%= link_to comment.user.name, "/users/#{comment.user_id}", class: :comment_user %>
+              <%= comment.text %>
+             <% end %>
+             <% end %>
             </li>
           <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
         </ul>

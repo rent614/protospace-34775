@@ -1,12 +1,11 @@
 
 <div class="card">
-  <%= link_to image_tag(prototype.image, class: :card__img ), "/prototypes/:id"%>
+  <%= link_to image_tag(prototype.image, class: :card__img ), prototype_path(prototype.id) %>
   <div class="card__body">
-  
-    <%= link_to "#{prototype.title}", "/prototypes/:id", class: :card__title%>
+    <%= link_to prototype.title, prototype_path(prototype.id), method: :get, class: :card__title %>
     <p class="card__summary">
       <%= prototype.catch_copy %>
     </p>
-    <%= link_to "#{prototype.user.name}", "/prototypes/:id", class: :card__user %>
+    <%= link_to prototype.user.name, prototype_path(prototype.id), class: :card__user %>
   </div>
 </div>
