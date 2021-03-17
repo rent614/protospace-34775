@@ -11,10 +11,10 @@
       <%# <%= link_to "by #{@prototype.user.name}さん" ,  user_path(current_user), class: :prototype__user %> 
       <%# 上の記述で＠prototypeにuserモデルからnameカラムを持ってくるコードができた %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
-      <% if current_user == @prototype.user%>
+      <% if current_user.id == @prototype.user.id%>
         <div class="prototype__manage">
-          <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %>
-          <%= link_to "削除する", prototype_path(@prototype), method: :delete, class: :prototype__btn %>
+          <%= link_to "編集する", root_path, class: :prototype__btn %>
+          <%= link_to "削除する", root_path, method: :delete, class: :prototype__btn %>
         </div>
       <% end %>
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>

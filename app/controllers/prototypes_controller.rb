@@ -22,6 +22,9 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
   end 
 
+  def move_to_index
+  end
+
   
 
   private
