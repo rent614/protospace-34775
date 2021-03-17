@@ -1,7 +1,7 @@
 class PrototypesController < ApplicationController
   
   def index
-  
+    @prototypes = Prototype.all
   end
 
   def new
@@ -9,21 +9,23 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    Prototype.create(prototype_params)
-    if current_user.create(prototype_params)
-      redirect_to root_path
+     @prototype = Prototype.new(prototype_params)
+    if @prototype.save
+      redirect_to root_path(@prototype)
     else
-      render :edit
+      render :new
     end
   end
 
   def show
+    @prototype = prototype.find(params[:id])
+    @prototypes = @user.prototypes
   end 
 
   
 
   private
   def prototype_params
-    params.require(:prototype).permit(:content, :image).merge(user_id: current_user.id)
+    params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id:current_user.id)
   end
 end

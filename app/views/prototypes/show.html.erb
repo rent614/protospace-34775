@@ -2,9 +2,9 @@
   <div class="inner">
     <div class="prototype__wrapper">
       <p class="prototype__hedding">
-        <%= "プロトタイプのタイトル"%>
+        <%= "#{prototype.title}"%>
       </p>
-      <%= link_to "by プロトタイプの投稿者", root_path, class: :prototype__user %>
+      <%= link_to "#{prototype.name}", root_path, class: :prototype__user %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
         <div class="prototype__manage">
           <%= link_to "編集する", root_path, class: :prototype__btn %>
@@ -12,19 +12,19 @@
         </div>
       <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
       <div class="prototype__image">
-        <%= image_tag "プロトタイプの画像" %>
+         <%= image_tag prorotype.image, class: 'protptype-image' %>
       </div>
       <div class="prototype__body">
         <div class="prototype__detail">
           <p class="detail__title">キャッチコピー</p>
           <p class="detail__message">
-            <%= "プロトタイプのキャッチコピー" %>
+            <%= "#{prototype.catch_copy}" %>
           </p>
         </div>
         <div class="prototype__detail">
           <p class="detail__title">コンセプト</p>
           <p class="detail__message">
-            <%= "プロトタイプのコンセプト" %>
+            <%= "#{prototype.concept}" %>
           </p>
         </div>
       </div>
