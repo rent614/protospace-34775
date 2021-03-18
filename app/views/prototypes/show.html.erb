@@ -6,7 +6,7 @@
       </p>
 
             <%# <%= @comment.text %> 
-      <%= link_to @prototype.user.name ,root_path, class: :prototype__user %>
+      <%= link_to @prototype.user.name ,"/users/:id", class: :prototype__user %>
       <%#= link_to "by #{@prototype.user.name}さん" , "/users/#{@comment.user_id}" , class: :prototype__user %> 
       <%# <%= link_to "by #{@prototype.user.name}さん" ,  user_path(current_user), class: :prototype__user %> 
       <%# 上の記述で＠prototypeにuserモデルからnameカラムを持ってくるコードができた %>
