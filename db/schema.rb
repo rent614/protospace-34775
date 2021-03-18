@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_03_18_020327) do
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "content"
+    t.string "text"
     t.bigint "prototype_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_03_18_020327) do
   end
 
   create_table "prototypes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
+    t.string "title", default: "", null: false
     t.text "catch_copy"
     t.text "concept"
     t.bigint "user_id"
