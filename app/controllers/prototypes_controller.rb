@@ -49,7 +49,11 @@ class PrototypesController < ApplicationController
   end
 
   private
-  def prototype_params
+   def prototype_params
     params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id:current_user.id)
+   end
+
+   def edit
+    redirect_to root_path unless current_user == @prototype.user
   end
-end
+ end
