@@ -8,7 +8,7 @@
             <%# <%= @comment.text %> 
       <%= link_to @prototype.user.name ,user_path(@prototype.user), class: :prototype__user %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
-      <% if current_user.id == @prototype.user.id%>
+      <% if current_user == @prototype.user%>
         <div class="prototype__manage">
           <%= link_to "編集する", edit_prototype_path(@prototype), class: :prototype__btn %>
           <%= link_to "削除する", prototype_path(@prototype), method: :delete, class: :prototype__btn %>

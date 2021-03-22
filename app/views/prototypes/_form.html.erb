@@ -1,22 +1,22 @@
 <%= form_with model: @prototype, local: true do |f|%>
   <div class="field">
     <%= f.label :title, "プロトタイプの名称" %><br />
-    <%= f.text_field :title, id:"prototype_title" %>
+    <%= f.text_field :title %>
   </div>
 
   <div class="field">
     <%= f.label :catch_copy, "キャッチコピー" %><br />
-    <%= f.text_area :catch_copy, class: :form__text, id:"prototype_catch_copy" %>
+    <%= f.text_area :catch_copy, class: :form__text %>
   </div>
 
   <div class="field">
     <%= f.label :concept, "コンセプト" %><br />
-    <%= f.text_area :concept, class: :form__text, id:"prototype_concept" %>
+    <%= f.text_area :concept, class: :form__text %>
   </div>
 
   <div class="field">
     <%= f.label :image, "プロトタイプの画像" %><br />
-    <%= f.file_field :image, id:"prototype_image" %>
+    <%= f.file_field :image %>
   </div>
 
   <div class="actions">
